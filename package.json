@@ -1,0 +1,22 @@
+{
+  "name": "tytix-mmo",
+  "version": "1.0.0",
+  "description": "sample mmo server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antbelliard/tytix-mmo.git"
+  },
+  "keywords": [
+    "mmo"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/antbelliard/tytix-mmo/issues"
+  },
+  "homepage": "https://github.com/antbelliard/tytix-mmo#readme"
+}
