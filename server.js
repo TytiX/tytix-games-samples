@@ -5,8 +5,14 @@ const pjson = require('./package.json');
 
 var app = express();
 
+const PORT = 8081;
+const HOST = "0.0.0.0";
+
 app.get('/', (req, res) => {
   res.send('Hello world running version '+pjson.version+'\n');
 });
 
 app.listen(PORT, HOST);
+console.log('listening on port : '+PORT);
+
+module.exports = app; // for testing

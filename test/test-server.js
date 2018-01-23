@@ -1,0 +1,34 @@
+//During the test the env variable is set to test
+process.env.NODE_ENV = 'test';
+
+//Require the dev-dependencies
+let chai = require('chai');
+let chaiHttp = require('chai-http');
+let server = require('../server');
+let should = chai.should();
+
+chai.use(chaiHttp);
+//Our parent block
+describe('test server', () => {
+    beforeEach((done) => { //Before each test we empty the database
+        console.log('begin test !');
+        done();
+    });
+/*
+  * Test the /GET route
+  */
+  describe('/GET root', () => {
+    it('it should GET the root doc', (done) => {
+      chai.request(server)
+        .get('/')
+        .end((err, res) => {
+          res.should.have.status(200);
+          //console.log(res.body);
+          res.body.should.be.a('object');
+          res.text.should.be.eql('Hello world running version 0.0.1\n');
+          done();
+        });
+    });
+  });
+
+});
