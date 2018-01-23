@@ -4,17 +4,24 @@ process.env.NODE_ENV = 'test';
 //Require the dev-dependencies
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-let server = require('../server');
 let should = chai.should();
 
 chai.use(chaiHttp);
 //Our parent block
 describe('test server', () => {
-    beforeEach((done) => { //Before each test we empty the database
-        console.log('begin test !');
-        done();
-    });
-/*
+
+  var server = require('../server');
+
+  before(function() {
+    // runs before all tests in this block
+  });
+
+  after(function() {
+    // runs after all tests in this block
+    server.close();
+  });
+  
+  /*
   * Test the /GET route
   */
   describe('/GET root', () => {

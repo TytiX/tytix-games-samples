@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.send('Hello world running version '+pjson.version+'\n');
 });
 
-app.listen(PORT, HOST);
+var server = app.listen(PORT, HOST);
 console.log('listening on port : '+PORT);
 
-module.exports = app; // for testing
+module.exports = server; // for testing
