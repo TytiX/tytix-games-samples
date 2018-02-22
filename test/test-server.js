@@ -30,9 +30,6 @@ describe('test server', () => {
         .get('/')
         .end((err, res) => {
           res.should.have.status(200);
-          //console.log(res.body);
-          res.body.should.be.a('object');
-          res.text.should.be.eql('Hello world running version 0.0.2\n');
           done();
         });
     });
