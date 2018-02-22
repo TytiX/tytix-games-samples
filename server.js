@@ -10,10 +10,6 @@ const HOST = "0.0.0.0";
 
 app.use('/', express.static('dist'));
 
-// app.get('/', (req, res) => {
-//   res.send('Hello world running version '+pjson.version+'\n');
-// });
-
 var server = app.listen(PORT, HOST);
 console.log('listening on port : '+PORT);
 
