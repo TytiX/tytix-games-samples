@@ -1,0 +1,12 @@
+<div class="container">
+  <div *ngFor="let data of messageList" class="messages">
+    <div>{{data.name}}</div>
+    <div>{{data.msg}}</div>
+  </div>
+</div>
+<div class="input">
+  <input #msg
+      (keyup.enter)="sendMessage(msg.value)"
+      (blur)="sendMessage(msg.value); msg.value='' ">
+  <button (click)="sendMessage(msg.value)">SEND</button>
+</div>

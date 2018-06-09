@@ -4,9 +4,10 @@
   "description": "sample mmo server",
   "main": "server.js",
   "scripts": {
+    "ng": "node node_modules/@angular/cli/bin/ng",
     "start": "node server.js",
     "test": "./node_modules/mocha/bin/mocha --timeout 10000",
-    "build": "node node_modules/@angular/cli/bin/ng build",
+    "build": "node node_modules/@angular/cli/bin/ng build --prod",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

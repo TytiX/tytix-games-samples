@@ -15,50 +15,56 @@ const HOST = "0.0.0.0";
 app.use('/', express.static('dist'));
 
 
-var server = http.listen(PORT, function(){
+var server = http.listen(PORT, function() {
   console.log('listening on *:'+PORT);
 });
 
 // IO Part
-io.on('connection',function(socket){
+io.on('connection', function(socket) {
 
-  console.log('new connection');
+  console.log('chat hi');
+  socket.broadcast.emit({name: 'server', msg:'hi'});
+  socket.emit({name: 'server', msg:'hi'});
 
-  socket.broadcast.emit('hi');
+  // socket.on('newplayer', function() {
+  //     socket.player = {
+  //         id: server.lastPlayderID++,
+  //         x: randomInt(100,400),
+  //         y: randomInt(100,400)
+  //     };
+  //     socket.emit('allplayers',getAllPlayers());
+  //     socket.broadcast.emit('newplayer',socket.player);
 
-  socket.on('newplayer',function(){
-      socket.player = {
-          id: server.lastPlayderID++,
-          x: randomInt(100,400),
-          y: randomInt(100,400)
-      };
-      socket.emit('allplayers',getAllPlayers());
-      socket.broadcast.emit('newplayer',socket.player);
+  //     socket.on('click', function(data) {
+  //         console.log('click to '+data.x+', '+data.y);
+  //         socket.player.x = data.x;
+  //         socket.player.y = data.y;
+  //         io.emit('move',socket.player);
+  //     });
 
-      socket.on('click',function(data){
-          console.log('click to '+data.x+', '+data.y);
-          socket.player.x = data.x;
-          socket.player.y = data.y;
-          io.emit('move',socket.player);
-      });
+  //     socket.on('disconnect', function() {
+  //         io.emit('remove',socket.player.id);
+  //     });
+  // });
 
-      socket.on('disconnect',function(){
-          io.emit('remove',socket.player.id);
-      });
+  socket.on('chat', function(data) {
+    console.log('chat', data);
+    socket.broadcast.emit(data);
+    socket.emit(data);
   });
 
-  socket.on('test',function(){
+  socket.on('test', function() {
       console.log('test received');
   });
 
   socket.on('disconnect', function() {
-
+    socket.broadcast.emit({name: 'server', msg:'bye'});
   });
 });
 
-function getAllPlayers(){
+function getAllPlayers() {
   var players = [];
-  Object.keys(io.sockets.connected).forEach(function(socketID){
+  Object.keys(io.sockets.connected).forEach( function(socketID) {
       var player = io.sockets.connected[socketID].player;
       if(player) players.push(player);
   });

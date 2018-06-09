@@ -4,10 +4,12 @@ import { HomeComponent } from './home/home.component';
 import { FirstGameComponent } from './first-game/first-game.component';
 import { SecondGameComponent } from './second-game/second-game.component';
 import { OnlineGameComponent } from './online-game/online-game.component';
+import { ChatComponent } from './chat/chat.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'first', component: FirstGameComponent },
   { path: 'second', component: SecondGameComponent },
-  { path: 'online', component: OnlineGameComponent }
+  { path: 'online', component: OnlineGameComponent },
+  { path: 'chat', component: ChatComponent }
 ];
