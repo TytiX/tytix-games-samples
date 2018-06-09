@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FirstGameComponent } from './first-game/first-game.component';
 import { SecondGameComponent } from './second-game/second-game.component';
+import { OnlineGameComponent } from './online-game/online-game.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SecondGameComponent } from './second-game/second-game.component';
     AppComponent,
     HomeComponent,
     FirstGameComponent,
-    SecondGameComponent
+    SecondGameComponent,
+    OnlineGameComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@
   "description": "sample mmo server",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node node_modules/@angular/cli/bin/ng build && node server.js",
     "test": "./node_modules/mocha/bin/mocha --timeout 10000",
     "build": "ng build",
     "lint": "ng lint",
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/antbelliard/tytix-mmo#readme",
   "dependencies": {
-    "express": "^4.16.2",
     "@angular/animations": "^5.1.0",
     "@angular/common": "^5.1.0",
     "@angular/compiler": "^5.1.0",
@@ -34,10 +33,14 @@
     "@angular/platform-browser": "^5.1.0",
     "@angular/platform-browser-dynamic": "^5.1.0",
     "@angular/router": "^5.1.0",
+    "@types/socket.io": "^1.4.31",
+    "@types/socket.io-client": "^1.4.32",
     "core-js": "^2.4.1",
+    "express": "^4.16.2",
     "intl": "^1.2.5",
     "phaser-ce": "^2.10.0",
     "rxjs": "^5.5.6",
+    "socket.io": "^2.0.4",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
