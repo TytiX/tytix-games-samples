@@ -16,6 +16,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.chatService.register().subscribe( dataMsg => {
+      console.log('[ChatComponent] msg :', dataMsg);
       this.messageList.push(dataMsg);
     });
   }
@@ -25,5 +26,9 @@ export class ChatComponent implements OnInit {
       name: this.name,
       msg: msg
     });
+  }
+
+  setName(name: string) {
+    this.name = name;
   }
 }

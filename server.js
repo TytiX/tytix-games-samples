@@ -23,8 +23,8 @@ var server = http.listen(PORT, function() {
 io.on('connection', function(socket) {
 
   console.log('chat hi');
-  socket.broadcast.emit({name: 'server', msg:'hi'});
-  socket.emit({name: 'server', msg:'hi'});
+  socket.broadcast.emit('chat', {name: 'server', msg:'hi'});
+  socket.emit('chat', {name: 'server', msg:'hi'});
 
   // socket.on('newplayer', function() {
   //     socket.player = {
@@ -49,8 +49,8 @@ io.on('connection', function(socket) {
 
   socket.on('chat', function(data) {
     console.log('chat', data);
-    socket.broadcast.emit(data);
-    socket.emit(data);
+    socket.broadcast.emit('chat', data);
+    socket.emit('chat', data);
   });
 
   socket.on('test', function() {
@@ -58,7 +58,7 @@ io.on('connection', function(socket) {
   });
 
   socket.on('disconnect', function() {
-    socket.broadcast.emit({name: 'server', msg:'bye'});
+    socket.broadcast.emit('chat', {name: 'server', msg:'bye'});
   });
 });
 
